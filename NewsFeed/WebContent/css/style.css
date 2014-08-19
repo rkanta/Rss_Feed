@@ -1,0 +1,170 @@
+/* Initial jumbotron */
+body {
+	left: 0;
+	margin: 0;
+	overflow: scroll;
+	position: relative;
+}
+
+/* Initial menu */
+.menu {
+	background: #202024 url('images/black-thread.png') repeat left top;
+	left: -285px; /* start off behind the scenes */
+	height: 100%;
+	position: fixed;
+	width: 285px;
+}
+
+/* Basic styling */
+.nav a {
+	color: #5a5a5a;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 14px 10px;
+	text-transform: uppercase;
+}
+
+.nav li {
+	display: inline;
+}
+
+.row {
+	margin: 0;
+}
+
+.header {
+	background-color: rgba(255, 255, 255, 0.95);
+	border-bottom: 1px solid #ddd;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 300;
+	font-size: 17px;
+	padding: 15px;
+}
+
+.head h1 {
+	color: #202024;
+	/* color: #000099;*/
+	font-size: 40px;
+	font-family: 'Shift', sans-serif;
+	font-weight: bold;
+}
+
+.jumbotron {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+	background-color: #fff;
+	padding-top: 0;
+}
+
+/*
+.jumbotron {
+  background-image:url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/bg.png');
+  height: 100%;
+  background-size: cover;
+  overflow:scroll;
+}
+
+
+.jumbotron{
+margin: 0px;
+font-size: 12px;
+font-family: sans-serif;
+
+}
+*/
+.jumbotron .container {
+	top: 100px;
+}
+
+.jumbotron .feedcontainer {
+	height: auto;
+	width: 1300px;
+	float: right;
+	background-color: activeborder;
+}
+
+.feed {
+	height: inherit;
+	width: inherit;
+	float: left;
+	background:
+		url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/feature-gradient-transparent.png')
+		center center no-repeat;
+	background-repeat: repeat;
+}
+
+.feed  p {
+	font-size: 20px;
+	font-weight: lighter;
+	color: black;
+	text-shadow: none;
+}
+
+.jumbotron h1 {
+	color: #fff;
+	/* color: #000099;*/
+	font-size: 40px;
+	font-family: 'Shift', sans-serif;
+	font-weight: bold;
+}
+
+.learn-more {
+	background-color: #f7f7f7;
+}
+
+.learn-more h3 {
+	font-family: 'Shift', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.learn-more a {
+	color: #00b0ff;
+}
+
+.menu ul {
+	border-top: 1px solid #636366;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu li {
+	border-bottom: 1px solid #636366;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 45px;
+	padding-bottom: 3px;
+	padding-left: 20px;
+	padding-top: 3px;
+}
+
+.menu a {
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.icon-close {
+	cursor: pointer;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.icon-menu {
+	color: #000000;
+	cursor: pointer;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	padding-bottom: 25px;
+	padding-left: 25px;
+	padding-top: 25px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.icon-menu i {
+	margin-right: 5px;
+}
