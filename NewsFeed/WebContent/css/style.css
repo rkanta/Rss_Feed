@@ -92,6 +92,7 @@ font-family: sans-serif;
 	background:
 		url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/feature-gradient-transparent.png')
 		center center no-repeat;
+	background-size:cover;	
 	background-repeat: repeat;
 }
 

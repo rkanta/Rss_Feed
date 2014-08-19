@@ -126,7 +126,7 @@ function loadData()
                 var description = $item.find('description').text();
                 var pubDate = $item.find('pubDate').text();
 
-                var html = "<div style=\"margin-bottom:8px;\">";
+                var html = "<div style=\"margin-bottom:8px;\" class=\"Feed\">";
                 html += "<h3>" + title + "</h3>";
                 html += "<em>" + pubDate + "</em>";
                 html += "<p>" + description + "</p>";
