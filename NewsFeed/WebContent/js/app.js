@@ -1,12 +1,27 @@
 var main = function(){
+	var x = '0';
     $('.icon-menu').click(function(){
-    $('.menu').animate({
-    left:'0px'
-    },200);
-    
-    $('body').animate({
-    left:'285px'
-    },200);
+    	
+    if (x == '0') {
+    	 $('.menu').animate({
+    		    left:'0px'
+    		    },200);
+    		    
+    		    $('body').animate({
+    		    left:'285px'
+    		    },200);
+    		    x= '1';
+    }
+    		    else {
+    	  $('.menu').animate({
+    		    left:'-285px'
+    		    },200);
+    		    
+    		    $('body').animate({
+    		    left:'0px'
+    		    },200);
+    		    x= '0';
+	}
     
     });
     
@@ -18,7 +33,7 @@ var main = function(){
     $('body').animate({
     left:'0px'
     },200);
-    
+    x= '0';
     });
     
     
