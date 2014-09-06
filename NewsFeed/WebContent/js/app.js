@@ -1,5 +1,6 @@
 var main = function(){
 	var x = '0';
+	//icon-menu to animate the menu
     $('.icon-menu').click(function(){
     	
     if (x == '0') {
@@ -36,10 +37,10 @@ var main = function(){
     x= '0';
     });
     
-    
- 
+    //add button to populate the panel .panel has options to search new topics and add them to feed.
+    $('.add-button').colorbox({inline:true, width:"50%",height:"80%",fixed:true,href:"#html"});
   
-  
+    /*
     
     $("#rss-styled").rss("http://www.recruiter.com/feed/career.xml", {
         limit: 5,
@@ -47,7 +48,7 @@ var main = function(){
         entryTemplate: '<dt><a href="{url}">{title}</a></dt><dd>{shortBodyPlain}[{author}@{date}]</dd>'
     }).show();
     
-    /*
+   
     
     $("#rss-styled1").rss("http://www.recruiter.com/feed/career.xml", {
         limit: 5,
