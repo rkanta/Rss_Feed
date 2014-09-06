@@ -104,9 +104,34 @@
 
 				<div class="feedcontainer" class="well">
 					<div id="rss-styled1"></div>
+				</div>
 
+				<!--division initially hidden but visible when the popup button is clicked
+				this div is as container for holding data for new topics to be subscribed  <div style="display: none">-->
 
+				<div style="display: none">
 
+					<div id="inline_content" style="padding: 10px; background: #fff;">
+						<div class="popup-content">
+							<!-- <input type="text" width="90%" height="10%"> -->
+							<input type='text' placeholder='Search Topic...' id='search-text-input'
+								onfocus='Clear(this);' />
+							<div id='search-button-holder'>
+								<img src='fonts/search.png' />
+							</div>
+							<div class="rssitemlist">
+								<ul>
+
+									<li><a href="#">About</a></li>
+									<li><a href="views/NyTimes.html">NyTimes</a></li>
+									<li><a href="#">CNN</a></li>
+									<li><a href="views/IBNLive.html">IBNLive</a></li>
+									<li><a href="#">Contact</a></li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 

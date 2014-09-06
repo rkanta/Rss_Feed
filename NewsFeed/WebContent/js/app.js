@@ -38,7 +38,8 @@ var main = function(){
     });
     
     //add button to populate the panel .panel has options to search new topics and add them to feed.
-    $('.add-button').colorbox({inline:true, width:"50%",height:"80%",fixed:true,href:"#html"});
+    $('.add-button').colorbox({inline:true, width:"50%",height:"80%",fixed:true,href:"#inline_content"});
+  //  $(".inline").colorbox({inline:true, width:"50%"});
   
     /*
     
