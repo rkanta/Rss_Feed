@@ -37,6 +37,7 @@ var main = function(){
     x= '0';
     });
     
+   
     //add button to populate the panel .panel has options to search new topics and add them to feed.
     $('.add-button').colorbox({inline:true, width:"50%",height:"80%",fixed:true,href:"#inline_content"});
   //  $(".inline").colorbox({inline:true, width:"50%"});
@@ -142,7 +143,7 @@ function loadData()
                 var link = $item.find('link').text();
                 var description = $item.find('description').text();
                 var pubDate = $item.find('pubDate').text();
-
+// include for loop here to limit the feed entries
                 var html = "<div style=\"margin-bottom:8px;\" class=\"Feed\">";
                 html += "<h3>" + title + "</h3>";
                 html += "<em>" + pubDate + "</em>";
@@ -158,7 +159,7 @@ function loadData()
     	
     }
     
-
+    
     
 };
 

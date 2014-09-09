@@ -76,11 +76,13 @@ body {
 }
 /*popup content styling*/
 .popup-content{
-	display:block;
+	display: block;
+overflow: auto;
+width: 720;
 }
 
 #search-text-input{
-   border-top: thin solid #e5e5e5;
+  border-top: thin solid #e5e5e5;
 border-right: thin solid #e5e5e5;
 border-bottom: 0;
 border-left: thin solid #e5e5e5;
@@ -89,8 +91,8 @@ height: 40px;
 outline: 0;
 float: left;
 padding: .4em 0 .4em .6em;
-width: 669px;
-display: inherit
+width: 665px;
+display: inherit;
 }
 #search-button-holder{
          background-color: #f1f1f1;
@@ -100,7 +102,7 @@ cursor: pointer;
 float: left;
 position: relative;
 display: inherit;
-height: 40px;
+height: 39px;
 text-align: center;
 width: 50px;
         }
@@ -124,12 +126,14 @@ box-shadow: 0px 1px 1px 1px #e5e5e5;
 border-right: 1px solid #e5e5e5;
 border-left: 1px solid #e5e5e5;
 font-family: 'Open Sans', sans-serif;
-line-height: 45px;
-padding-bottom: 3px;
-padding-left: 20px;
-padding-top: 3px;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-top: 10px;
+float: left;
 background-color: white;
 box-shadow: 0px 1px 1px 1px #e5e5e5;
+width: inherit;
+display: inline-block;
 }
 
 .rssitemlist a {
@@ -248,6 +252,19 @@ cursor: pointer;
 padding-right: 10px;
 padding-top: 10px;
 margin-left: 145;
+}
+
+.rss-button{
+	cursor: pointer;
+padding-right: 10px;
+padding-bottom: 10px;
+/* margin-left: 145; */
+float: right;
+
+}
+
+.rssitemlist{
+	float:left;
 }
 /*
 .add-button ::before {
