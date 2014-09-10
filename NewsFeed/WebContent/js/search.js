@@ -7,10 +7,12 @@ var search = function(){
 	  // Query for president feeds on cnn.com
 	 // var query = 'site:cnn.com president';
 	  
-	  $('#search-button-holder').click(function(){
-		  var query = document.getElementById('search-text-input').value;  
-	  google.feeds.findFeeds(query, findDone);
-	  });
+		 $('#search-button-holder').colorbox({inline:true, width:"50%",height:"80%",fixed:true,href:"#inline_content",onComplete:function(){
+			 var query = document.getElementById('search-text-input').value;  
+			  google.feeds.findFeeds(query, findDone);
+		        
+		    }});
+	  
 	}
 
 	
@@ -28,7 +30,7 @@ var search = function(){
 	    for (var i = 0; i < result.entries.length; i++) {
 	      var entry = result.entries[i];
 	      html += '<li><a href="' + entry.url + '">' + entry.title + '</a>';
-	    	html+= "<div class=\"rss-button\">";
+	    	html+= "<div class=\"rss-button cboxElement\">";
 	    	html+="<img src=\"fonts/addbutton.png\">";
 	    	html+="</div>";
 	    	html+="</li>";
@@ -46,12 +48,16 @@ var search = function(){
 	    }
         html+='</ul>';
 	    content.innerHTML = html;
-		 
+	    $('.rss-button').colorbox({inline:true, width:"50%",height:"80%",fixed:true,href:"#addrssoptions"});
+	    return true;
 		
 	  };
 	}
 	
+	
+	
 	  //*[@id="itemlist"]/ul/li[1]/a .rss-button
+	/*
 	$('.rss-button').click(function(){
 		var link=  $(this).prev().attr("href");
 		var linkname= $(this).prev().text();
@@ -65,7 +71,7 @@ var search = function(){
 	        html+='<ul>';
 	        html += '<li><a href="' + link + ' " id=\"folder\">' + "Add To New Folder" + '</a>'+'</li>';
 	        html+='</ul>';
-	});/**/
+	});*/
 
 	google.setOnLoadCallback(OnLoad);
 ///html/body/div[1]/ul	});  //*[@id="itemlist"]/ul/li[1]/a
