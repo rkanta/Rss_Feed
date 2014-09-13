@@ -153,7 +153,7 @@ function loadData()
                 html += "</div>";
                 
                 $('#rss-styled1').append(html);
-                $(".iframe").colorbox({iframe:true, width:"80%", height:"80%",maxWidth:"true",maxHeight:"true"});
+                $(".iframe").colorbox({iframe:true, width:"95%", height:"95%",maxWidth:"true",maxHeight:"true",fixed:true});
             });
         });
     	

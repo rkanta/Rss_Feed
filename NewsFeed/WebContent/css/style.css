@@ -94,6 +94,21 @@ padding: .4em 0 .4em .6em;
 width: 665px;
 display: inherit;
 }
+
+#add-folder-text{
+border-top: thin solid #e5e5e5;
+border-right: thin solid #e5e5e5;
+border-bottom: 0;
+border-left: thin solid #e5e5e5;
+box-shadow: 0px 1px 1px 1px #e5e5e5;
+height: 40px;
+outline: 0;
+float: left;
+padding: .4em 0 .4em .6em;
+width: 80%;
+display: inherit;
+	
+	}
 #search-button-holder{
          background-color: #f1f1f1;
 border-top: thin solid #e5e5e5;
@@ -142,6 +157,127 @@ display: inline-block;
 	text-decoration: none;
 	text-transform: uppercase;
 }
+
+#addfoldercontainer{
+	width: 742px;
+height: 550px;
+display: inline;
+	
+}
+
+
+#addrssoptions{
+	background-color:#B2B2B2;
+	width:742px;
+	height: 550px;
+}
+.addsub{
+	display: inline-block;
+border-bottom: aliceblue;
+height: 60px;
+width: 730px;
+background: #F1F1F1;
+padding-top: 20;
+border-radius: 30px;
+margin-bottom: 8px;
+}
+
+#addrssoptions ul > li{
+	display: inline-block;
+}
+
+.menu-center{
+	text-align: center;
+position: absolute;
+left: 43%;
+padding: 0;
+margin: 0;
+/* border: 1px solid white; */
+/* border-bottom: none; */
+color: #428bca;
+}
+
+.menu-left{
+	text-align: center;
+position: absolute;
+left: 20;
+padding: 0;
+margin: 0;
+border: 1px solid white;
+/* border-bottom: none; */
+border: none;
+}
+
+.menu-right{
+	text-align: center;
+position: absolute;
+left: 93%;
+padding: 0;
+margin: 0;
+/* border: 1px solid white; */
+/* border-bottom: none; */
+}
+
+.newsub{
+	height: 100px;
+width: 730;
+/*width:95%;*/
+padding: 10;
+color: #428bca;
+background: #F1F1F1;
+border-radius: 30px;
+margin-bottom: 8px;
+}
+
+.subscription{
+	width:400px;
+}
+
+.newsublink{
+	height: 100px;
+width: 730;
+padding: 10;
+color: #428bca;
+background: #F1F1F1;
+border-radius: 30px;
+margin-bottom: 8px;
+}
+
+.sublink{
+	width:400px;
+}
+.newfolder{
+padding-left: 250;
+}
+
+.enterfoldername{
+	cursor: pointer;
+display: inline-block;
+height: 60px;
+width: 190px;
+background: #F1F1F1;
+color: #428bca;
+padding-top: 20;
+border-radius: 50px;
+text-align: center;
+margin-left: 250;
+}
+
+.newfolder li{
+	cursor:pointer;
+	display: inline-block;
+border-bottom: aliceblue;
+height: 60px;
+width: 190px;
+background: #F1F1F1;
+color: #428bca;
+padding-top: 20;
+border-radius: 50px;
+text-align: center;
+}
+
+
+
 /*
 .jumbotron {
   background-image:url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/bg.png');
