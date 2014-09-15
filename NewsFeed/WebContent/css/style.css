@@ -64,6 +64,7 @@ body {
 	font-size: 40px;
 	font-family:georgia; 
 	font-weight: bold;
+	padding-top: 20px;
 }
 
 .jumbotron {
@@ -329,23 +330,6 @@ text-align: center;
 }
 
 
-
-/*
-.jumbotron {
-  background-image:url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/bg.png');
-  height: 100%;
-  background-size: cover;
-  overflow:scroll;
-}
-
-
-.jumbotron{
-margin: 0px;
-font-size: 12px;
-font-family: sans-serif;
-
-}
-*/
 .jumbotron .container {
 	top: 100px;
 }
@@ -361,9 +345,8 @@ font-family: sans-serif;
 	height: inherit;
 	width: inherit;
 	float: left;
-	background:
-		url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/feature-gradient-transparent.png')
-		center center no-repeat;
+	background:url('images/feature-gradient-transparent.png') center center no-repeat;
+	/*background: #202024 url('images/black-thread.png') repeat left top;	*/
 	background-size:cover;	
 	background-repeat: repeat;
 }
@@ -374,15 +357,15 @@ font-family: sans-serif;
 	color: black;
 	text-shadow: none;
 }
-
+/*
 .jumbotron h1 {
-	color: #fff;
-	/* color: #000099;*/
-	font-size: 40px;
-	font-family: 'Shift', sans-serif;
-	font-weight: bold;
+ color: #fff; 
+/* color: #000099; */
+/* font-size: 40px; */
+/* font-family: 'Shift', sans-serif; */
+/* font-weight: bold; */
 }
-
+*/
 .learn-more {
 	background-color: #f7f7f7;
 }
@@ -418,6 +401,14 @@ font-family: sans-serif;
 	font-size: 15px;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+
+#menulist a{
+color: #fff;
+font-size: 15px;
+text-decoration: none;
+text-transform: uppercase;
+cursor: pointer;
 }
 
 .icon li{

@@ -88,10 +88,47 @@ function loadData()
         });
     });
     */
-    //below code for RSS feed using yahoo api
+    //below code for RSS feed using yahoo api http://feeds.feedburner.com/NdtvNews-TopStories
     //default always shows the CNN Top stories
+    
+    
     $('#rss-styled1').empty();
-    rssReader('http://rss.cnn.com/rss/cnn_topstories.rss');
+    //rssReader('http://rss.cnn.com/rss/cnn_topstories.rss');
+    rssReader('http://feeds.feedburner.com/NdtvNews-TopStories');
+    
+    if (typeof (Storage) !== "undefined") {
+
+		if (localStorage.getItem('names') !== null) {
+			var menunames = JSON.parse(localStorage["names"]);
+			var html = '';
+			for (var i = 0; i < menunames.length; i++) {
+    			//var tempquery = localStorage.getItem("name"[i]);
+				html += '<li><a class=\"menulink\">' + menunames[i] + '</a></li>';
+    		}
+			
+			$("#menulist").append(html);
+		}
+	}
+	
+	  $('.menulink').click(function(){
+			var ref=$(this).text();
+			//value = value.replace(/(^\")|("$)/gi, "");
+			//rssurl=rssurl.replace(/(^\")|("$)/gi, "");
+			var rssurl= [];
+			rssurl=	localStorage.getItem(ref);
+			rssurl=JSON.parse(rssurl);
+			$('#rss-styled1').empty();
+			for (var i = 0; i < rssurl.length; i++) {
+			 rssReader(rssurl[i]);
+			}
+			/*
+			 $.getScript("../js/app.js", function(ref){
+
+				 rssReader(localStorage.getItem(ref));
+				   // Here you can use anything you defined in the loaded script
+				});*/
+			
+		});
     
     $("#myid li").click(function() {
         var index = $(this).index();
@@ -144,7 +181,7 @@ function loadData()
                 var description = $item.find('description').text();
                 var pubDate = $item.find('pubDate').text();
 // include for loop here to limit the feed entries
-                var html = "<div style=\"margin-bottom:8px;\" class=\"Feed\">";
+                var html = "<div style=\"margin-bottom:18px;\" class=\"Feed\">";
                 html += "<h3>" + title + "</h3>";
                 html += "<em>" + pubDate + "</em>";
                 html += "<p>" + description + "</p>";
@@ -164,3 +201,5 @@ function loadData()
 };
 
 $(document).ready(main);
+
+ 
