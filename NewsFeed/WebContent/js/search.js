@@ -59,7 +59,13 @@ var search = function(){
 	    	$('#sublink').text(subattr);
 	    	text='';
 	    	subattr='';
+	    	
 	    	if(typeof(Storage) !== "undefined") {
+	    		if (localStorage.getItem('names') === null) {
+	    			var names =[];
+	    			localStorage["names"] = JSON.stringify(names);
+	    			//localStorage.setItem("names", names);
+				}
 	    		var querynames=JSON.parse(localStorage["names"]);
 	    		if (querynames !== null) {
 	    			var folder_content = document.getElementById('folders');
@@ -81,7 +87,7 @@ var search = function(){
 	    			 var folder_content = document.getElementById('folders');
 	    			    var folderhtml = '';
 	    			    var names =[];
-	    			    var i;
+	    			    var i ='';
 	    			    
 	    			    
 	    		        

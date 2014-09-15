@@ -159,9 +159,10 @@ display: inline-block;
 }
 
 #addfoldercontainer{
-	width: 742px;
-height: 550px;
-display: inline;
+	width: inherit;
+height: inherit;
+display: inline-block;
+color:#428bca;
 	
 }
 
@@ -171,19 +172,28 @@ display: inline;
 	width:742px;
 	height: 550px;
 }
+
+.addsubcriptioncontainer{
+	display: inline-block;
+color: #428bca;
+width: 720;
+/* background: #F1F1F1; */
+}
 .addsub{
 	display: inline-block;
-border-bottom: aliceblue;
-height: 60px;
-width: 730px;
-background: #F1F1F1;
+/* border-bottom: aliceblue; */
+height: auto;
+width: inherit;
 padding-top: 20;
-border-radius: 30px;
+padding-left: 10;
+padding-bottom: 8;
 margin-bottom: 8px;
+background-color: white;
 }
 
 #addrssoptions ul > li{
 	display: inline-block;
+	align-content:center;
 }
 
 .menu-center{
@@ -219,14 +229,28 @@ margin: 0;
 }
 
 .newsub{
-	height: 100px;
-width: 730;
-/*width:95%;*/
-padding: 10;
-color: #428bca;
-background: #F1F1F1;
-border-radius: 30px;
+	display: inline-block;
+/* border-bottom: aliceblue; */
+height: auto;
+width: inherit;
+padding-top: 20;
+padding-left: 10;
+padding-bottom: 8;
 margin-bottom: 8px;
+background-color: white;
+}
+
+.addfoldersearchcontainer{
+	display: inline-block;
+/* border-bottom: aliceblue; */
+height: auto;
+width: 98%;
+padding-top: 20;
+padding-left: 10;
+padding-bottom: 8;
+margin-bottom: 8px;
+background-color: white;
+	
 }
 
 .subscription{
@@ -234,12 +258,11 @@ margin-bottom: 8px;
 }
 
 .newsublink{
-	height: 100px;
-width: 730;
+height: auto;
+width: inherit;
 padding: 10;
 color: #428bca;
-background: #F1F1F1;
-border-radius: 30px;
+background: #FFF;
 margin-bottom: 8px;
 }
 
@@ -248,6 +271,34 @@ margin-bottom: 8px;
 }
 .newfolder{
 padding-left: 250;
+}
+
+.folderlist{
+	height:auto;
+	width:inherit;
+	
+}
+.folderlist ul{
+	border-top: 1px solid #e5e5e5;
+list-style: none;
+padding: 0;
+width: 720;
+box-shadow: 0px 1px 1px 1px #e5e5e5;
+}
+
+.folderlist li{
+	border-bottom: 2px solid #e5e5e5;
+border-right: 1px solid #e5e5e5;
+border-left: 1px solid #e5e5e5;
+font-family: 'Open Sans', sans-serif;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-top: 10px;
+float: left;
+background-color: white;
+box-shadow: 0px 1px 1px 1px #e5e5e5;
+width: inherit;
+display: inline-block;
 }
 
 .enterfoldername{
@@ -261,6 +312,7 @@ padding-top: 20;
 border-radius: 50px;
 text-align: center;
 margin-left: 250;
+margin-right: 250;
 }
 
 .newfolder li{

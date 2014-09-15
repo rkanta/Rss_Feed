@@ -77,15 +77,6 @@
 	<div class="col-md-10">
 		<div class="head">
 			<H1 align="center">The NewsPaper</H1>
-			<!-- enable for autocomplete feature in future
-			<input id="autocomplete">
-			<script>
-				$("#autocomplete").autocomplete(
-						{
-							source : [ "c++", "java", "php", "coldfusion",
-									"javascript", "asp", "ruby" ]
-						});
-			</script>-->
 		</div>
 
 	</div>
@@ -160,56 +151,56 @@
 
 					</div>
 
-					<div id="addrssoptions" style="padding: 10px; background: #fff;">
+					<div id="addrssoptions" style="padding: 10px; background: #e5e5e5;">
+						<div class="addsubcriptioncontainer">
+							<div class="addsub">
+								<ul class="col-md-5">
+									<li><a href="#">Cancel</a></li>
+								</UL>
+								<ul class="col-md-5">
+									<li><p>Add Subscription</p></li>
+								</ul>
+								<ul class="col-md-2">
+									<li><a href="#">Save</a></li>
+								</ul>
+							</div>
+							<div class="newsub">
+								<label>Subscription</label>
+								<p id="subcription">Subscription</p>
+							</div>
 
-						<div class="addsub">
-							<ul class="menu-left">
-								<li><a href="#">Cancel</a></li>
-							</UL>
-							<ul class="menu-center">
-								<li><p>Add Subscription</p></li>
-							</ul>
-							<ul class="menu-right">
-								<li><a href="#">Save</a></li>
-							</ul>
-						</div>
-						<div class="newsub">
-						<label>Subscription</label>
-							<p id="subcription">Subscription</p>
-						</div>
-						
-						<div class="newsublink">
-						<label>NewsBurner Link</label>
-							<p id="sublink">NewsBurner Link</p>
-						</div>
-						<div class="newfolder">
+							<div class="newsublink">
+								<label>NewsBurner Link</label>
+								<p id="sublink">NewsBurner Link</p>
+							</div>
+							<div class="newfolder">
 
-							<ul>
-								<li><p>Add To New Folder</p></li>
-							</ul>
+								<ul>
+									<li><p>Add To New Folder</p></li>
+								</ul>
+							</div>
+							<p>ADD TO FOLDERS</p>
+							<div class="folderlist" id="folders" class="well"></div>
+
 						</div>
-						<div class="folderlist" id="folders" class="well">
-						
-						</div>
-						
-						
-						
+
 					</div>
-					
-					
-					<div id="addfoldercontainer" style="padding: 10px; background: #fff;">
 
-						
-						<div class="newsub">
+
+					<div id="addfoldercontainer"
+						style="padding: 10px; background: #e5e5e5;">
+
+
+						<div class="addfoldersearchcontainer">
 							<p>Add Folder</p>
 							<input id="add-folder-text" type='text'
 								placeholder='Folder Name...' onfocus='Clear(this);'>
 						</div>
-						
+
 						<div class="enterfoldername">
-						<p>Enter</p>
+							<p>Enter</p>
 						</div>
-						
+
 					</div>
 
 				</div>
