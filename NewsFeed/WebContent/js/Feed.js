@@ -184,25 +184,6 @@ var search = function(){
 	  };
 	}
 	
-	
-	
-	  //*[@id="itemlist"]/ul/li[1]/a .rss-button
-	/*
-	$('.rss-button').click(function(){
-		var link=  $(this).prev().attr("href");
-		var linkname= $(this).prev().text();
-		
-		//links where the links have to added(here it is menu)
-		// var content = document.getElementById('menu');
-		//colorbox will open samesize another pane where we can have the option to add the links to a new or existing folder
-		$(this).colorbox({inline:true, width:"50%",height:"80%",fixed:true,href:"#addrssoptions"});
-		 var content = document.getElementById('newfolder');
-		 var html = '';
-	        html+='<ul>';
-	        html += '<li><a href="' + link + ' " id=\"folder\">' + "Add To New Folder" + '</a>'+'</li>';
-	        html+='</ul>';
-	});*/
-
 	google.setOnLoadCallback(OnLoad);
 	// onload get all the feed entries to set to menulist
 	
