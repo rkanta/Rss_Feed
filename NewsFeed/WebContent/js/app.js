@@ -183,11 +183,13 @@ function loadData()
 // include for loop here to limit the feed entries
                 //var html = "<div style=\"margin-bottom:18px;\" class=\"Feed\">";
                 var html = "<div class=\"Feed\">";
+                html += "<div class=\"Feedcontent\">";
                 html += "<h3>" + title + "</h3>";
                 html += "<em>" + pubDate + "</em>";
                 html += "<p>" + description + "</p>";
                 //html += "<a href=\"" + link + "\" target=\"_blank\">Read More</a>";
                 html += "<a class='iframe cboxElement' href=\"" + link + "\">Read More</a>";
+                html += "</div>";
                 html += "</div>";
                 
                 $('#rss-styled1').append(html);
