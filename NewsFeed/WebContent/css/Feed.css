@@ -336,20 +336,20 @@ text-align: center;
 
 .jumbotron .feedcontainer {
 	height: auto;
-	width: 1300px;
+	/*width: 1300px;background-color:activeborder*/
 	float: right;
-	background-color: activeborder;
+	background-color:#e9eaed ;
 }
 
 .feed {
 	height: inherit;
 	width: inherit;
-	float: left;
 	background:url('images/feature-gradient-transparent.png') center center no-repeat;
-	/*background: #202024 url('images/black-thread.png') repeat left top;	*/
 	background-size:cover;	
 	background-repeat: repeat;
 }
+
+/*background color:#e9eaed*/
 
 .feed  p {
 	font-size: 20px;
