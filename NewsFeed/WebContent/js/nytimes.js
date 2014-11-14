@@ -102,8 +102,8 @@ var main = function(){
                  * http://sandbox.feedly.com/v3/search/feeds/?apikey=A0SXFX54S3K0OC9GNCXG&query=ndtv
                  * http://sandbox.feedly.com/v3/search/feeds/?apikey=A0SXFX54S3K0OC9GNCXG&query=NDTV?callback=jQuery111107604972799308598_1415403685859&_=1415403685860
             */
-        /* working
-            $.getJSON(baseUrl + URI+ "?apikey="+apikey+"&query="+query+ "&callback=?", function(json) {
+        /* working */
+            $.getJSON(site, function(json) {
 
                 //TMDb is nice enough to return a message if nothing was found, so we can base our if statement on this information
         	console.log(json);
@@ -112,7 +112,7 @@ var main = function(){
                    //Display the poster and a message announcing the result
                     console.log(json);
                 }});
-                */
+               
           
        /* tried with proxy not working
         request = new XMLHttpRequest;
@@ -121,7 +121,7 @@ var main = function(){
         */
         
      // service url  Ajax call with call back but throws unexpected token error======== working
-   /* */   var url = 'http://localhost:8080/feedly/v3/search/feeds/?apikey=A0SXFX54S3K0OC9GNCXG&query=NDTV&callback=?';
+   /*    var url = 'http://localhost:8080/feedly/v3/search/feeds/?apikey=A0SXFX54S3K0OC9GNCXG&query=NDTV&callback=?';
          
         $.ajax({
             url: url,
@@ -135,7 +135,7 @@ var main = function(){
                  // log error in browser
                 console.log(e.message);
             }
-        }); 
+        }); */
         
         /* ajax call using php script to solve cross domain issue: not working
         var requestData = {
