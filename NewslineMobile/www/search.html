@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='css/NewFeed.css' rel='stylesheet'>
+    <link href='css/search.css' rel='stylesheet'>
     <link
             href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
             rel="stylesheet">
@@ -24,10 +24,16 @@
     <div class="popup-content">
         <!-- <input type="text" width="90%" height="10%">
         <input	id="autocomplete">-->
+        
+        <div id="back-button-holder">
+            <!--  <a href="search.html"><i class="fa fa-plus fa-lg"></i></a>-->
+            <a href="NewFeed.html"><i class="fa fa-arrow-left"></i></a>
+        </div>
         <input id="search-text-input" type="text" placeholder="Search Topic..." onfocus="Clear(this);">
 
         <div id="search-button-holder">
-            <img src="fonts/search.png" alt="">
+            <!--  <img src="fonts/search.png" alt="">-->
+            <i class="fa fa-search"></i>
         </div>
         <div class="rssitemlist" id="itemlist">
         </div>

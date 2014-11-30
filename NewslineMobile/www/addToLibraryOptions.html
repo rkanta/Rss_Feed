@@ -1,19 +1,25 @@
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='css/NewFeed.css' rel='stylesheet'>
-    <link
-            href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-            rel="stylesheet">
-    <link rel="stylesheet"
-          href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-    <script src="http://code.jquery.com/jquery-1.10.2.js"
-            type="text/javascript"></script>
-    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"
-            type="text/javascript"></script>
-    <!-- to include google api for feed -->
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='css/NewFeed.css' rel='stylesheet'>
+<link
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+	
+<!-- the following set of links are used for utilising the jquery mobile features -->	
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!--                                                                                  -->	
+<script src="http://code.jquery.com/jquery-1.10.2.js"
+	type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"
+	type="text/javascript"></script>
+<!-- to include google api for feed -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
 	google.load("feeds", "1")
 </script>
 
@@ -21,44 +27,38 @@
 
 <body>
 
-<div id="addrssoptions" style="padding: 10px; background: #e5e5e5;">
-                <div class="addsubcriptioncontainer">
-                    <div class="addsub">
-                        <ul class="col-md-5">
-                            <li><a href="#">Cancel</a></li>
-                        </UL>
-                        <ul class="col-md-5">
-                            <li><p>Add Subscription</p></li>
-                        </ul>
-                        <ul class="col-md-2">
-                            <li><a href="#">Save</a></li>
-                        </ul>
-                    </div>
-                    <div class="newsub">
-                        <label>Subscription</label>
-                        <p id="subcription">Subscription</p>
-                    </div>
+	<div id="addrssoptions" style="padding: 10px; background: #e5e5e5;">
+		<div class="addsubcriptioncontainer">
+				<ul class="subscriptionOption">
+					<li><a href="#">Cancel</a></li>
+					<li><p>Add Subscription</p></li>
+					<li><a href="#">Save</a></li>
+				</ul>
+			<div class="newsub">
+				<label>Subscription</label>
+				<p id="subcription">Subscription</p>
+			</div>
 
-                    <div class="newsublink">
-                        <label>NewsBurner Link</label>
-                        <p id="sublink">NewsBurner Link</p>
-                    </div>
-                    <div class="newfolder">
+			<div class="newsublink">
+				<label>NewsBurner Link</label>
+				<p id="sublink">NewsBurner Link</p>
+			</div>
+			<div class="newfolder">
 
-                        <ul>
-                            <li><p>Add To New Folder</p></li>
-                        </ul>
-                    </div>
-                    <p>ADD TO FOLDERS</p>
-                    <div class="folderlist" id="folders" class="well"></div>
-                </div>
+				<ul>
+					<li><p>Add To New Folder</p></li>
+				</ul>
+			</div>
+			<p>ADD TO FOLDERS</p>
+			<div class="folderlist" id="folders" class="well"></div>
+		</div>
 
-            </div>
+	</div>
 
-<script src="js/app.js" type="text/javascript"></script>
-<script src="js/Feed.js" type="text/javascript"></script>
-<script
-        src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-        type="text/javascript"></script>
+	<script src="js/app.js" type="text/javascript"></script>
+	<script src="js/Feed.js" type="text/javascript"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+		type="text/javascript"></script>
 </body>
 </html>

@@ -37,9 +37,11 @@ var search = function(){
 	      var entry = result.entries[i];
 	      html += '<li><a href="' + entry.url + '">' + entry.title + '</a>';
 	    	html+= "<div class=\"rss-button cboxElement\">";
-	    	//<i class="fa fa-plus"></i>
+	    	//<a href="search.html"><i class="fa fa-plus"></i></a>
+	    	html+= "<a href=\"addToLibraryOptions.html\">";
 	    	html+="<i class=\"fa fa-plus\">"+"</i>";
 	    	//html+="<img src=\"fonts/addbutton.png\">";
+	    	html+="</a>";
 	    	html+="</div>";
 	    	html+="</li>";
 	    	  /*<div class="add-button cboxElement">
