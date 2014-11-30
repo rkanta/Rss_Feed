@@ -77,7 +77,10 @@ var search = function(){
 				}
 	    		var querynames=JSON.parse(localStorage["names"]);
 	    		if (querynames !== null) {
+	    			//documents.getElementById('coolIframe') .src='http://www.mysitepage3/computers.html';
+	    			//$('#dummyitem').load("addToLibraryOptions.html #folderlist");
 	    			var folder_content = document.getElementById('folders');
+	    			
 	    			var folderhtml = '';
 	    			folderhtml+='<ul>';
 	    			for (var i = 0; i < querynames.length; i++) {
