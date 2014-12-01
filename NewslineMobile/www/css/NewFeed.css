@@ -132,20 +132,7 @@ padding: .4em 0 .4em .6em;
 display: inherit;
 }
 
-#add-folder-text{
-border-top: thin solid #e5e5e5;
-border-right: thin solid #e5e5e5;
-border-bottom: 0;
-border-left: thin solid #e5e5e5;
-box-shadow: 0px 1px 1px 1px #e5e5e5;
-height: 40px;
-outline: 0;
-float: left;
-padding: .4em 0 .4em .6em;
-width: 80%;
-display: inherit;
-	
-	}
+
 #search-button-holder{
          background-color: #f1f1f1;
 border-top: thin solid #e5e5e5;
@@ -198,13 +185,6 @@ display: inline-block;
 	text-transform: uppercase;
 }
 
-#addfoldercontainer{
-	width: inherit;
-height: inherit;
-display: inline-block;
-color:#428bca;
-	
-}
 
 
 #addrssoptions{
@@ -285,18 +265,7 @@ margin-bottom: 8px;
 background-color: white;
 }
 
-.addfoldersearchcontainer{
-	display: inline-block;
-/* border-bottom: aliceblue; */
-height: auto;
-width: 98%;
-padding-top: 20;
-padding-left: 10;
-padding-bottom: 8;
-margin-bottom: 8px;
-background-color: white;
-	
-}
+
 
 .subscription{
 	width:400px;
@@ -318,47 +287,8 @@ margin-bottom: 8px;
 padding-left: 250;
 }
 
-.folderlist{
-	height:auto;
-	width:inherit;
-	
-}
-.folderlist ul{
-	border-top: 1px solid #e5e5e5;
-list-style: none;
-padding: 0;
-width: 720;
-box-shadow: 0px 1px 1px 1px #e5e5e5;
-}
 
-.folderlist li{
-	border-bottom: 2px solid #e5e5e5;
-border-right: 1px solid #e5e5e5;
-border-left: 1px solid #e5e5e5;
-font-family: 'Open Sans', sans-serif;
-padding-bottom: 10px;
-padding-left: 10px;
-padding-top: 10px;
-float: left;
-background-color: white;
-box-shadow: 0px 1px 1px 1px #e5e5e5;
-width: inherit;
-display: inline-block;
-}
 
-.enterfoldername{
-	cursor: pointer;
-display: inline-block;
-height: 60px;
-width: 190px;
-background: #F1F1F1;
-color: #428bca;
-padding-top: 20;
-border-radius: 50px;
-text-align: center;
-margin-left: 250;
-margin-right: 250;
-}
 
 .newfolder li{
 	cursor:pointer;
