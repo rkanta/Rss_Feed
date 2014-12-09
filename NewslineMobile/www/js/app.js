@@ -121,7 +121,7 @@ function loadData()
 			for (var i = 0; i < rssurl.length; i++) {
 			 rssReader(rssurl[i]);
 			}
-			/*
+			/*function load script from other source
 			 $.getScript("../js/app.js", function(ref){
 
 				 rssReader(localStorage.getItem(ref));

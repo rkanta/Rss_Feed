@@ -307,6 +307,7 @@ text-align: center;
 .feedcontainer {
 	height: auto;
 	/*width: 1300px;background-color:activeborder*/
+	width:100%;
 	float: left;
 	background-color:#e9eaed ;
 }
@@ -386,10 +387,10 @@ padding: 1em;
 .rssMenuList li{
 	border-bottom: 1px solid #636366;
 	font-family: 'Open Sans', sans-serif;
-	line-height: 45px;
-	padding-bottom: 3px;
-	padding-left: 20px;
-	padding-top: 3px;
+	line-height: 2.75em;
+	padding-bottom: 0.25em;
+	padding-left: 1.25em;
+	padding-top: 0.25em;
 }
 
 .menu li {
