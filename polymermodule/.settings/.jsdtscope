@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="components/polymer/polymer.js|components/polymer/polymer.min.js|components/webcomponentsjs/CustomElements.js|components/webcomponentsjs/ShadowDOM.js|components/webcomponentsjs/webcomponents-lite.js|components/webcomponentsjs/webcomponents-lite.min.js|components/webcomponentsjs/webcomponents.js|components/webcomponentsjs/webcomponents.min.js" kind="src" path=""/>
+	<classpathentry excluding="components/google-code-prettify/bin/prettify.min.js|components/google-code-prettify/bin/run_prettify.min.js|components/marked/test/index.js|components/platform/platform.js|components/polymer/polymer.js|components/polymer/polymer.min.js|components/web-animations-js/Gruntfile.js|components/web-animations-js/web-animations.min.js|components/webcomponentsjs/CustomElements.js|components/webcomponentsjs/ShadowDOM.js|components/webcomponentsjs/webcomponents-lite.js|components/webcomponentsjs/webcomponents-lite.min.js|components/webcomponentsjs/webcomponents.js|components/webcomponentsjs/webcomponents.min.js" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.FireFoxBrowserLibrary"/>
