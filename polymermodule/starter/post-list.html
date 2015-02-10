@@ -14,24 +14,32 @@ post-card {
 }
 </style>
 
-<!-- add markup here --> 
+<!-- add markup here -->
+<core-media-query query="max-width: 640px"
+                  queryMatches="{{phoneScreen}}"></core-media-query>
 <post-service id="service" posts="{{posts}}">
 </post-service>
 
-<div layout vertical center>
+<div layout vertical?="{{phoneScreen}}"
+     horizontal?="{{!phoneScreen}}" wrap>
 
-	<template repeat="{{post in posts}}"> 
+	<template repeat="{{post in posts}}">
+
 	<post-card
       favorite="{{post.favorite}}"
       on-favorite-tap="{{handleFavorite}}"
       hidden?="{{show == 'favorites' && !post.favorite}}">
 	<img src="{{post.avatar}}" width="70" height="70">
-	<h2>{{post.username}}</h2>
-	<p>{{post.text}}</p>
-	</post-card> </template>
+	<h2>{{post.title}}</h2>
+	<p>{{post.description}}</p>
+	</post-card>
+
+	</template>
 
 </div>
-</template> <script>
+</template>
+
+<script>
   Polymer({
   handleFavorite: function(event, detail, sender) {
     var post = sender.templateInstance.model.post;

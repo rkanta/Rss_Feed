@@ -2,7 +2,9 @@
 <link rel="import"
 	href="../components/core-icon-button/core-icon-button.html">
 
-<polymer-element name="post-card"> <template>
+<polymer-element name="post-card">
+
+<template>
 <style>
 :host {
 	display: block;
@@ -12,6 +14,25 @@
 	width: 100%;
 	font-size: 1.2rem;
 	font-weight: 300;
+}
+
+@media screen and (min-width: 640px){
+
+  :host {
+	display: inline;
+	/*
+	position: relative;*/
+	background-color: white;
+	padding: 20px;
+	font-size: 1.2rem;
+	font-weight: 300;
+	float:left;
+	width: 45%;
+            margin: 1%;
+            box-sizing: border-box;
+            /*box-shadow: black 0px 0px 5px;*/
+}
+
 }
 
 .card-header {
@@ -53,7 +74,11 @@ core-icon-button {
   icon="favorite"
   on-tap="{{favoriteTapped}}">
 </core-icon-button>
-<content></content> </template> <script>
+<content></content>
+
+</template>
+
+<script>
   Polymer({
   publish: {
     favorite: {
@@ -66,4 +91,6 @@ core-icon-button {
     this.fire('favorite-tap');
   }
   });
-  </script> </polymer-element>
+  </script>
+
+  </polymer-element>
