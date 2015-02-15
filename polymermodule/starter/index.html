@@ -29,6 +29,7 @@
 	href="../components/core-scroll-header-panel/core-scroll-header-panel.html">
 <link rel="import" href="../components/core-menu/core-menu.html">
 <link rel="import" href="../components/core-item/core-item.html">
+<link rel="import" href="../components/core-pages/core-pages.html">
 <link rel="stylesheet" href="app.css">
 
 
@@ -108,9 +109,10 @@ core-scroll-header-panel {
 
 </head>
 
-<body unresolved>
+<body unresolved fullbleed>
 
-  <core-drawer-panel id="drawerpanel" responsiveWidth="1440px">
+
+  <core-drawer-panel id="drawerpanel" responsiveWidth="1600px">
 
     <core-header-panel drawer>
 	     <core-toolbar>Menu
@@ -161,8 +163,10 @@ core-scroll-header-panel {
   </core-drawer-panel>
 
 
-
 	<script>
+	document.querySelector('#mainpage').onclick = function(e) {
+      this.selected = (this.selected + 1) % this.items.length;
+    };
 	var tabs = document.querySelector('paper-tabs');
 
 	var list = document.querySelector('post-list');
