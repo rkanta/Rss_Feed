@@ -1,0 +1,100 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import"
+	href="../components/core-icon-button/core-icon-button.html">
+
+<polymer-element name="post-card"> 
+
+<template>
+<style>
+:host {
+	display: block;
+	position: relative;
+	background-color: white;
+	padding: 20px;
+	width: 100%;
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
+.card-header {
+	margin-bottom: 10px;
+}
+
+polyfill-next-selector { content: '.card-header h2'; }
+.card-header ::content h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+polyfill-next-selector { content: '.card-header img'; }
+.card-header ::content img {
+  width: 100%;
+/*   border-radius: 50%; */
+height:50%
+  margin: 10px;
+}
+
+
+polyfill-next-selector { content: '.img-filter img'; }
+.img-filter ::content img {
+  display:none;
+}
+
+core-icon-button {
+  position: relative;
+  top:3px;
+  right: 3px;
+  left:90%;
+  color: #636363;
+}
+:host([favorite]) core-icon-button {
+  color: #da4336;
+}
+
+
+
+</style>
+
+<!-- CARD CONTENTS GO HERE -->
+
+<core-icon-button
+  id="favicon"
+  icon="favorite"
+  on-tap="{{favoriteTapped}}">
+</core-icon-button>
+
+<div class="card-header" layout vertical center>
+	<content select="img"></content>
+	<content select="h2"></content>	
+    <content select="p">
+    <div class="img-filter">
+     <content select="img" >
+    </div>
+    </content>	
+	</div>
+</div>
+
+
+
+
+
+
+
+</template> 
+
+<script>
+  Polymer({
+  publish: {
+    favorite: {
+      value: false,
+      reflect: true
+    }
+  },
+  favoriteTapped: function(event, detail, sender) {
+    this.favorite = !this.favorite;
+    this.fire('favorite-tap');
+  }
+  });
+  </script> 
+  
+  </polymer-element>
