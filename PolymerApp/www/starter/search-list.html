@@ -1,0 +1,62 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../post-service/search-service.html">
+<link rel="import" href="search-card.html">
+
+<polymer-element name="search-list" attributes="show queryparameter"> 
+<template>
+<style>
+:host {
+	display: block;
+	width: 100%;
+}
+
+search-card {
+	margin-bottom: 30px;
+}
+</style>
+
+<!-- add markup here -->
+<core-media-query query="max-width: 640px"
+                  queryMatches="{{phoneScreen}}"></core-media-query>
+
+
+<search-service id="service" queryurl="{{queryparameter}}" slists="{{slists}}">
+</search-service>
+
+<div layout vertical?="{{phoneScreen}}"
+     horizontal?="{{!phoneScreen}}" wrap>
+
+	<template repeat="{{slist in slists}}">
+
+	<search-card
+      favorite="{{slist.favorite}}"
+      on-favorite-tap="{{handleFavorite}}"
+      hidden?="{{show == 'favorites' && !slist.favorite}}">
+	<img src="{{slist.visualUrl}}" width="70" height="70">
+	<h2>{{slist.title}}</h2>
+<!-- 	<p>{{slist.feedId}}</p> -->
+	</search-card>
+
+	</template>
+
+</div>
+</template>
+
+<script>
+  Polymer({
+     /**
+       * feedly query parameter
+       *
+       * @attribute queryparameter
+       * @type string
+       */
+      queryparameter:null,
+
+  handleFavorite: function(event, detail, sender) {
+    var post = sender.templateInstance.model.post;
+    this.$.service.setFavorite(post.uid, post.favorite);
+  }
+});
+  </script> 
+  
+  </polymer-element>

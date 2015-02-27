@@ -1,0 +1,190 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link href="../components/core-icons/core-icons.html" rel="import">
+<link href="../components/core-icon-button/core-icon-button.html" rel="import">
+<link href="../components/core-animated-pages/core-animated-pages.html" rel="import">
+<link href="../components/paper-input/paper-input.html" rel="import">
+<link rel="import" href="search-list.html">
+
+
+<polymer-element name="search-page">
+<template>
+  <style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+
+    core-animated-pages {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .tall-toolbar {
+      box-sizing: border-box;
+      height: 240px;
+    }
+
+    .tall-toolbar-colored {
+      fill: #fff;
+      color: #fff;
+    }
+
+    .tall-toolbar [flex] {
+      font-size: 1.5em;
+    }
+
+    core-icon-button {
+      margin: 16px;
+    }
+
+    .body {
+      background-color: #f1f1f1;
+    }
+
+    .square {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      left: 16px;
+      top: 175px;
+    }
+
+ paper-input-decorator {
+        max-width: 100%;
+        width:95%;
+      }
+
+  paper-input-decorator /deep/ .unfocused-underline {
+    /* line color when the input is unfocused */
+    background-color: #64B5F6;
+}
+
+paper-input-decorator /deep/ .focused-underline {
+    /* line color when the input is focused */
+    background-color: #90CAF9;
+}
+
+paper-input-decorator /deep/ ::input-placeholder {
+    /* platform specific rules for placeholder text */
+    color: green;
+}
+
+#core_header_panel {
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+      }
+      
+      .searchcontainer {
+	width: 90%;
+	margin: 30px auto;
+}
+
+  </style>
+  <core-animated-pages id="pages" selected="{{page}}" selectedItem="{{selectedItem}}" transitions="hero-transition" no-transition?="{{noTransition}}">
+
+    <section id="page1" cross-fade style="background-color:#E5E5E5;">
+      <core-header-panel main mode="seamed" id="core_header_panel">
+      <core-toolbar class="tall-toolbar-colored" style="background-color:#03a9f4;" layout vertical hero-id="thing" hero?="{{page === 0 || !noTransition}}">
+
+          <!--<core-icon-button icon="clear" on-tap="{{back}}"></core-icon-button>-->
+
+          <core-field id="core_field" icon="search" theme="core-light-theme" center horizontal layout one flex>
+            <paper-icon-button icon="arrow-back" on-tap="{{back}}"></paper-icon-button>
+            <!--<input id="input" label="search newsline" value="{{ $.speech_mic.transcript }}" is="core-input" flex>-->
+            <paper-input-decorator label="search newsline">
+            <input is="core-input" value="{{query}}" on-keyup="{{onKeyUp}}">
+            </paper-input-decorator>
+            <!--<core-icon icon="search" id="core_icon"></core-icon>-->
+            <paper-icon-button icon="search" on-tap={{copyquery}}></paper-icon-button>
+
+          </core-field>
+
+	<!--
+	<core-field id="core_field" icon="search" theme="core-light-theme" center horizontal layout one flex>
+            <core-icon icon="search" id="core_icon"></core-icon>
+            <input id="input" value="{{ $.speech_mic.transcript }}" is="core-input" flex>
+            <speech-mic id="speech_mic"></speech-mic>
+          </core-field>
+
+          <div class="content" fit>content fits 100% below the header</div>
+          -->
+
+
+      </core-toolbar>
+      	<div class="searchcontainer" layout vertical center>
+		
+
+		<!--
+		<search-list show="all" queryparameter="{{queryparameter}}">
+		</search-list> -->
+		
+       <search-list show="all" queryparameter="{{queryparameter}}">
+		</search-list>
+
+
+	</div>
+
+      </core-header-panel>
+
+
+    </section>
+
+
+
+  </core-animated-pages>
+</template>
+<script>
+
+  Polymer({
+
+    publish: {
+      page: {value: 0},
+      site:"http://sandbox.feedly.com/v3/search/feeds/?apikey=A0SXFX54S3K0OC9GNCXG&query=",
+    },
+
+    selectedItem: null,
+    noTransition: true,
+
+      ready: function() {
+        // Initialize the instance's "list" property to empty array.
+        this.query = this.query || '';
+      },
+      copyquery:function(){
+        this.queryparameter = this.site+ this.query;
+      },
+
+      onKeyUp: function(e) {
+        if (e.keyCode == 13) {  // Enter.
+          this.queryparameter =  this.site+ this.query;
+        //  window.open('https://www.google.com/search?q=' + q);
+        }
+      },
+    back: function() {
+      this.noTransition = true;
+      this.fire('nested-back');
+    },
+
+    transition: function() {
+      this.noTransition = false;
+      this.page = this.page === 0 ? 1 : 0;
+    }
+
+  });
+</script>
+</polymer-element>
