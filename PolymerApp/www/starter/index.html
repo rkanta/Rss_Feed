@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+
+<head>
+
+<title>PolymerModule</title>
+
+<meta name="viewport"
+	content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+<script src="../components/webcomponentsjs/webcomponents.js">
+
+</script>
+
+<link rel="import" href="../components/font-roboto/roboto.html">
+<link rel="import"
+	href="../components/core-drawer-panel/core-drawer-panel.html">
+<link rel="import"
+	href="../components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../components/paper-tabs/paper-tabs.html">
+
+<link rel="import"
+	href="../components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../components/core-icon/core-icon.html">
+<link rel="import"
+	href="../components/core-scroll-header-panel/core-scroll-header-panel.html">
+<link rel="import" href="../components/core-menu/core-menu.html">
+<link rel="import" href="../components/core-item/core-item.html">
+<link rel="import" href="../components/core-animated-pages/core-animated-pages.html">
+<link rel="stylesheet" href="app.css">
+<link rel="import" href="post-card.html">
+<link rel="import" href="post-list.html">
+<link rel="import" href="search-page.html">
+
+<style shim-shadowdom>
+html,body {
+	height: 100%;
+	margin: 0;
+	background-color: #E5E5E5;
+	font-family: 'RobotoDraft', sans-serif;
+}
+.container {
+	width: 90%;
+	margin: 50px auto;
+}
+
+</style>
+
+</head>
+
+<body unresolved fullbleed>
+
+ <polymer-element name="news-line">
+  <template>
+
+    <style>
+
+      core-animated-pages {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      section {
+        text-align: center;
+        padding-top: 250px;
+      }
+
+      .square {
+        display: inline-block;
+        margin: 8px;
+        padding: 8px;
+        width: 200px;
+        height: 200px;
+        background-color: white;
+        color: #fff;
+      }
+
+      core-header-panel {
+	height: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	background-color: white;
+}
+
+core-toolbar {
+	background: #03a9f4;
+	color: white;
+}
+
+.container {
+	width: 90%;
+	margin: 50px auto;
+}
+
+.title {
+      -webkit-transform-origin: 0;
+      transform-origin: 0;
+      font-size: 40px;
+      margin-left: auto ;
+  margin-right: auto ;
+
+    }
+
+
+
+
+	#titleid {
+        position: relative;
+       /* left: 40%;*/
+       margin-left: auto;
+      margin-right: auto;
+      }
+
+core-scroll-header-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #eee;
+    }
+
+/* background for toolbar when it is at its full size
+    core-scroll-header-panel::shadow #headerBg {
+      background-image: url(demos/images/bg9.jpg);
+    }
+*/
+    /* background for toolbar when it is condensed */
+    core-scroll-header-panel::shadow #condensedHeaderBg {
+      background-color: #f4b400;
+    }
+
+
+    </style>
+
+    <core-animated-pages selected="{{page}}" transitions="hero-transition cross-fade">
+
+  <core-drawer-panel id="drawerpanel" responsiveWidth="1600px">
+
+    <core-header-panel drawer>
+	     <core-toolbar>Menu
+	     </core-toolbar>
+	     <core-menu>
+	     <core-item label="one"></core-item>
+	     <core-item label="two"></core-item>
+	     </core-menu>
+	     </core-header-panel>
+
+	     <core-header-panel main>
+	     <core-scroll-header-panel condenses fit>
+	<core-toolbar class="tall">
+	 <core-icon-button core-drawer-toggle icon="menu"></core-icon-button>
+	  <div flex></div>
+	 <core-icon-button id="thing1" icon="search" on-tap="{{transition}}"></core-icon-button>
+	 <div  class="bottom indent title">News</div>
+	<!--
+	<paper-tabs
+		id="tabs" selected="all" self-end>
+	<paper-tab name="all">All</paper-tab>
+	<paper-tab name="favorites">Favorites</paper-tab>
+	</paper-tabs>-->
+
+
+	</core-toolbar>
+	<!-- main page content will go here -->
+	<div class="container" layout vertical center>
+		<post-list show="all">
+		</post-list>
+
+		<!--
+		<post-card> <img width="70" height="70"
+			src="../images/avatar-07.svg">
+		<h2>Another Developer</h2>
+		<p>I'm composing with shadow DOM!</p>
+		</post-card>
+		<div relative style="height: 100px;">
+  <div fit style="background-color: #000;color: white">Fit</div>
+</div>
+ -->
+
+
+	</div>
+
+	</core-scroll-header-panel>
+	     </core-header-panel>
+  </core-drawer-panel>
+
+  <search-page page="{{subpage}}" on-nested-back="{{back}}"></search-page>
+
+</core-animated-pages>
+
+</template>
+
+<script>
+
+
+
+    Polymer('news-line', {
+
+      page: 0,
+      subpage: 0,
+
+      transition: function(e) {
+
+        var el = e.target;
+        if (el.id === "thing1") {
+          this.subpage = 0;
+        } else {
+          this.subpage = 1;
+        }
+
+        setTimeout(function() {
+          this.page = 1;
+        }.bind(this), 100);
+      },
+
+      back: function() {
+        this.page = 0;
+      }
+
+
+
+    });
+
+  </script>
+
+  </polymer-element>
+<!--
+	<script>
+
+
+	tabs.addEventListener('core-select', function() {
+	    console.log("Selected: " + tabs.selected);
+	    console.log("beforelistshow: " + list.show);
+	    list.show = tabs.selected;
+	    console.log("afterlistshow: " + list.show);
+	});
+
+	var titleStyle = document.querySelector('.title').style;
+    addEventListener('core-header-transform', function(e) {
+      var d = e.detail;
+      var m = d.height - d.condensedHeight;
+      var scale = Math.max(0.75, (m - d.y) / (m / 0.25)  + 0.75);
+      titleStyle.transform = titleStyle.webkitTransform =
+          'scale(' + scale + ') translateZ(0)';
+    });
+    </script>
+    */-->
+    <news-line></news-line>
+</body>
+
+</html>
