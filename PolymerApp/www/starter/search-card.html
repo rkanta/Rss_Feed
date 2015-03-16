@@ -19,9 +19,14 @@
     }
     polyfill-next-selector { content: '.card-header h2'; }
     .card-header ::content h2 {
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: 300;
+      margin: 0px;
+font-size: 1.1rem;
+font-weight: 300;
+white-space: nowrap;
+width: 80%;
+overflow: hidden;
+text-overflow: ellipsis;
+text-align: left;
     }
     polyfill-next-selector { content: '.card-header img'; }
     .card-header ::content img {
@@ -31,8 +36,8 @@
     }
     core-icon-button {
       position: absolute;
-      top: 0px;
-      right: 0px;
+      top: -1rem;
+      right: -1rem;
       color: #636363;
     }
     :host([favorite]) core-icon-button {
