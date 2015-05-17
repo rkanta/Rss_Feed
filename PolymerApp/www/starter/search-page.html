@@ -159,7 +159,7 @@ paper-input-decorator /deep/ ::input-placeholder {
     },
 
     selectedItem: null,
-    noTransition: true,
+   // noTransition: true,
 
       ready: function() {
         // Initialize the instance's "list" property to empty array.
@@ -176,7 +176,7 @@ paper-input-decorator /deep/ ::input-placeholder {
         }
       },
     back: function() {
-      this.noTransition = true;
+      //this.noTransition = true;
       this.fire('nested-back');
     },
 
