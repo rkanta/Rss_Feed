@@ -51,13 +51,19 @@ text-align: left;
       <content select="h2"></content>
 
     </div>
-
+    
     <core-icon-button
       id="favicon"
-      icon="favorite"
-      on-tap="{{favoriteTapped}}">
+      icon="add"
+      on-tap="{{favoriteTapped}}" hidden?="{{added}}">
     </core-icon-button>
-
+    
+    <core-icon-button
+      id="favicon"
+      icon="done"
+      on-tap="{{favoriteTapped}}" hidden?="{{check}}">
+    </core-icon-button>
+    
     <content></content>   
   </template>
   <script>
@@ -66,12 +72,24 @@ text-align: left;
       favorite: {
         value: false,
         reflect: true
-      }
+      },
+    
+    
+    added:{
+  	  value:false,
+  	  reflect:true
+  },
+  check:{
+  	  value:true,
+  	  reflect:true
+  }
     },
-    favoriteTapped: function(event, detail, sender) {
-      this.favorite = !this.favorite;
-      this.fire('favorite-tap');
-    }
+      favoriteTapped: function(event, detail, sender) {
+        this.favorite = !this.favorite;
+        this.added = !this.added;
+        this.check = !this.check;
+        this.fire('favorite-tap');
+      }
   });
   </script>
 </polymer-element>
