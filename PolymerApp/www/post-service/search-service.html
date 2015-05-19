@@ -47,7 +47,7 @@
   @type Array
   @default []
 -->
-<polymer-element name="search-service" attributes="slists queryurl">
+<polymer-element name="search-service" attributes="slists queryurl httpmethod">
   <template>
     <style>
     :host {
@@ -57,6 +57,7 @@
     <core-ajax id="ajax"
       auto
       url="{{queryurl}}"
+      method="{{httpmethod}}"
       on-core-response="{{listLoaded}}"
       handleAs="json">
     </core-ajax>
