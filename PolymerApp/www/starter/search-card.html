@@ -68,7 +68,7 @@ text-align: left;
     
     <content></content>
     
-    <search-service id="service" queryurl="{{feedid}}" slists="{{slists}}" httpmethod="{{callmethod}}" params="{{params}}" contenttype="{{contenttype}}">
+    <search-service id="service" queryurl="{{url}}" slists="{{slists}}" httpmethod="{{callmethod}}" body="{{body}}" params="{{params}}" contenttype="{{contenttype}}">
 </search-service>   
   </template>
   <script>
@@ -76,8 +76,8 @@ text-align: left;
       created: function() {
 	      this.temposts=[];
 	      this.poststemp=[];
+	      this.params='';
 	    },
-	 params:null,
 	 auth:null,
 	 userid:'1c222e65-f071-4973-a87d-922d091708a3',
 	 callmethod:null,
@@ -94,7 +94,7 @@ text-align: left;
   	  value:true,
   	  reflect:true
   },
-  feedid:{
+  url:{
 	  value:null,
 	  reflect:true
 }
@@ -102,9 +102,9 @@ text-align: left;
     subscribe: function(event, detail, sender) {
         this.favorite = !this.favorite;
         this.poststemp = this.temposts;
-        this.feedid = "http://sandbox.feedly.com/v3/subscriptions";
-        this.params='{"id":"'+ this.temposts.feedId + '"}';
-        this.contenttype='application/json';
+        this.url = "http://sandbox.feedly.com/v3/subscriptions";
+        this.body='{"id":"'+ this.temposts.feedId + '"}';
+        this.contenttype='text/plain;charset=UTF-8';
         this.callmethod = 'POST';
         this.auth=true;
         this.$.service.enableAuthentication(this.auth);
@@ -115,10 +115,13 @@ text-align: left;
     unsubscribe: function(event, detail, sender) {
         this.favorite = !this.favorite;
         this.poststemp = this.temposts;
-        this.feedid = "http://sandbox.feedly.com/v3/subscriptions/"+encodeURI(this.temposts.feedId);
-        console.log('unsubscribeid: ' + this.feedid);
+        //this.params='"feed/'+ this.temposts.feedId + '"';
+        //this.params=this.temposts.feedId;
+        this.url = "http://sandbox.feedly.com/v3/subscriptions/"+encodeURIComponent(this.temposts.feedId);
+        console.log('unsubscribeid: ' + this.url);
         this.callmethod = 'DELETE';
-        this.auth=false;
+        //this.contenttype='application/x-www-form-urlencoded';
+        this.auth=true;
         this.$.service.enableAuthentication(this.auth);
         this.added = !this.added;
         this.check = !this.check;
