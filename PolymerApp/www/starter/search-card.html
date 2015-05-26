@@ -1,8 +1,9 @@
 <link rel="import" href="../components/polymer/polymer.html">
 <link rel="import"
 	href="../components/core-icon-button/core-icon-button.html">
+  <link rel="import" href="../post-service/search-service.html">
 
-<polymer-element name="search-card">
+<polymer-element name="search-card" attributes="temposts">
   <template>
     <style>
     :host {
@@ -45,6 +46,7 @@ text-align: left;
     }
     </style>
 
+     
     <div class="card-header" layout horizontal center>
 
       <content select="img"></content>
@@ -55,41 +57,73 @@ text-align: left;
     <core-icon-button
       id="favicon"
       icon="add"
-      on-tap="{{favoriteTapped}}" hidden?="{{added}}">
+      on-tap="{{subscribe}}" hidden?="{{added}}">
     </core-icon-button>
     
     <core-icon-button
       id="favicon"
       icon="done"
-      on-tap="{{favoriteTapped}}" hidden?="{{check}}">
+      on-tap="{{unsubscribe}}" hidden?="{{check}}">
     </core-icon-button>
     
-    <content></content>   
+    <content></content>
+    
+    <search-service id="service" queryurl="{{feedid}}" slists="{{slists}}" httpmethod="{{callmethod}}" params="{{params}}" contenttype="{{contenttype}}">
+</search-service>   
   </template>
   <script>
   Polymer({
+      created: function() {
+	      this.temposts=[];
+	      this.poststemp=[];
+	    },
+	 params:null,
+	 auth:null,
+	 userid:'1c222e65-f071-4973-a87d-922d091708a3',
+	 callmethod:null,
     publish: {
       favorite: {
         value: false,
         reflect: true
       },
-    
-    
-    added:{
+      added:{
   	  value:false,
   	  reflect:true
   },
   check:{
   	  value:true,
   	  reflect:true
-  }
+  },
+  feedid:{
+	  value:null,
+	  reflect:true
+}
     },
-      favoriteTapped: function(event, detail, sender) {
+    subscribe: function(event, detail, sender) {
         this.favorite = !this.favorite;
+        this.poststemp = this.temposts;
+        this.feedid = "http://sandbox.feedly.com/v3/subscriptions";
+        this.params='{"id":"'+ this.temposts.feedId + '"}';
+        this.contenttype='application/json';
+        this.callmethod = 'POST';
+        this.auth=true;
+        this.$.service.enableAuthentication(this.auth);
         this.added = !this.added;
         this.check = !this.check;
-        this.fire('favorite-tap');
+      },
+    
+    unsubscribe: function(event, detail, sender) {
+        this.favorite = !this.favorite;
+        this.poststemp = this.temposts;
+        this.feedid = "http://sandbox.feedly.com/v3/subscriptions/"+encodeURI(this.temposts.feedId);
+        console.log('unsubscribeid: ' + this.feedid);
+        this.callmethod = 'DELETE';
+        this.auth=false;
+        this.$.service.enableAuthentication(this.auth);
+        this.added = !this.added;
+        this.check = !this.check;
       }
   });
+  
   </script>
 </polymer-element>
