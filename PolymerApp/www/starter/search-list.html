@@ -30,7 +30,7 @@ search-card {
 
 	<search-card
       favorite="{{slist.favorite}}"
-      on-favorite-tap="{{handleFavorite}}"
+      on-favorite-tap="{{handleFavorite}}" temposts="{{slist}}"
       hidden?="{{show == 'favorites' && !slist.favorite}}">
 	<img src="{{slist.visualUrl}}" width="70" height="70">
 	<h2>{{slist.title}}</h2>
