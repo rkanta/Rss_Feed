@@ -23,6 +23,10 @@ search-card {
 <search-service id="service" queryurl="{{queryparameter}}" slists="{{slists}}">
 </search-service>
 
+<!-- this service(ajax) call is to get existing subscription and check if there are any matching with existing search results -->
+<search-service id="getsubs" queryurl="{{url}}" subslists="{{subslists}}" httpmethod="{{callmethod}}" token="{{token}}">
+</search-service>
+ 
 <div layout vertical?="{{phoneScreen}}"
      horizontal?="{{!phoneScreen}}" wrap>
 
@@ -50,12 +54,24 @@ search-card {
        * @attribute queryparameter
        * @type string
        */
+       ready: function() {
+	      //this.token = '{"Authorization":"AhIu6GJ7ImEiOiJGZWVkbHkgRGV2ZWxvcGVyIiwiZSI6MTQzNDgyNDE0MDIzMCwiaSI6IjFjMjIyZTY1LWYwNzEtNDk3My1hODdkLTkyMmQwOTE3MDhhMyIsInAiOjYsInQiOjEsInYiOiJzYW5kYm94IiwidyI6IjIwMTUuMTMiLCJ4Ijoic3RhbmRhcmQifQ:feedlydev"}';
+	   this.$.getsubs.enableAuthentication(true); 
+	   
+       }, 
       queryparameter:null,
-
+      url:'http://sandbox.feedly.com/v3/subscriptions',
+      callmethod:'GET',
+     
+      //this.$.getsubs.enableAuthentication(true),
   handleFavorite: function(event, detail, sender) {
     var post = sender.templateInstance.model.post;
     this.$.service.setFavorite(post.uid, post.favorite);
-  }
+  },
+  enableAuthentication:function(event, detail, sender) {
+      this.$.getsubs.enableAuthentication(true);
+    }
+  
 });
   </script> 
   
