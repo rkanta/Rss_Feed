@@ -47,7 +47,7 @@
   @type Array
   @default []
 -->
-<polymer-element name="search-service" attributes="slists queryurl httpmethod body params contenttype">
+<polymer-element name="search-service" attributes="subslists slists queryurl httpmethod body params contenttype token">
   <template>
     <style>
     :host {
@@ -80,6 +80,7 @@
   Polymer('search-service', {
     created: function() {
       this.slists = [];
+      this.subslists=[];
       this.temposts=[];
       this.token = [];
       this.params='';
@@ -89,7 +90,16 @@
     listLoaded: function() {
       // Make a copy of the loaded data
       if((this.$.ajax.response.length) != 0){
-	  this.slists=this.$.ajax.response.results.slice(0);
+	  
+	  if(this.$.ajax.response.results){
+	      this.slists=this.$.ajax.response.results.slice(0);
+	      this.fire('checksub');
+	  }
+	  else{
+	      this.subslists=this.$.ajax.response.slice(0);
+	      
+	  }
+	  
       }
       
     },

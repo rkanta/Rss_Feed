@@ -1,6 +1,7 @@
 <link rel="import" href="../components/polymer/polymer.html">
 <link rel="import" href="../post-service/search-service.html">
 <link rel="import" href="search-card.html">
+<link rel="import" href="../components/core-localstorage/core-localstorage.html">
 
 <polymer-element name="search-list" attributes="show queryparameter"> 
 <template>
@@ -20,12 +21,13 @@ search-card {
                   queryMatches="{{phoneScreen}}"></core-media-query>
 
 
-<search-service id="service" queryurl="{{queryparameter}}" slists="{{slists}}">
+<search-service id="service" queryurl="{{queryparameter}}" slists="{{slists}}" on-checksub="{{checksubscription}}">
 </search-service>
 
 <!-- this service(ajax) call is to get existing subscription and check if there are any matching with existing search results -->
 <search-service id="getsubs" queryurl="{{url}}" subslists="{{subslists}}" httpmethod="{{callmethod}}" token="{{token}}">
 </search-service>
+
  
 <div layout vertical?="{{phoneScreen}}"
      horizontal?="{{!phoneScreen}}" wrap>
@@ -35,7 +37,7 @@ search-card {
 	<search-card
       favorite="{{slist.favorite}}"
       on-favorite-tap="{{handleFavorite}}" temposts="{{slist}}"
-      hidden?="{{show == 'favorites' && !slist.favorite}}">
+      hidden?="{{show == 'favorites' && !slist.favorite}}" check="{{slist.check}}" added="{{slist.added}}">
 	<img src="{{slist.visualUrl}}" width="70" height="70">
 	<h2>{{slist.title}}</h2>
 <!-- 	<p>{{slist.feedId}}</p> -->
@@ -68,9 +70,41 @@ search-card {
     var post = sender.templateInstance.model.post;
     this.$.service.setFavorite(post.uid, post.favorite);
   },
-  enableAuthentication:function(event, detail, sender) {
-      this.$.getsubs.enableAuthentication(true);
-    }
+  
+  checksubscription:function(event, detail, sender){
+      console.log("searchlist length:"+this.slists.length);
+      console.log("subscriptionlist length:"+this.subslists.length);
+	for (var i = 0; i < this.slists.length; i++) {
+	    
+	    for(var j=0;j<this.subslists.length;j++){
+		    
+		    console.log("slists[i].feedId:"+i+ this.slists[i].feedId);
+		    console.log("subslists[j].id:"+j+this.subslists[j].id);
+		 if(this.slists[i].feedId == this.subslists[j].id){
+		     this.slists[i].added = true;
+		     this.slists[i].check = false;
+		     j=this.subslists.length;
+		     // return true;
+	         }
+	         else{
+	             this.slists[i].added = false;
+		         this.slists[i].check = true;
+	         }
+		
+	    }
+	    
+        
+        }
+	
+  },
+  
+  checkstatus:function(){
+      for(var i = 0; i < this.subslists.length; ++i){
+	  var temp= this.sublists[i];
+	  var temp= this.slists[i];
+	  var a = this.slists.indexOf(this.sublists[i]);
+      }
+  }
   
 });
   </script> 
