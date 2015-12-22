@@ -12,10 +12,10 @@
 <link href="../components/core-animated-pages/core-animated-pages.html" rel="import">
 <link href="../components/paper-input/paper-input.html" rel="import">
 <link rel="import" href="search-list.html">
+<link rel="import" href="subscription-list.html">
 
 
-
-<polymer-element name="search-page" attributes="selectedItem">
+<polymer-element name="source-page" attributes="selectedItem">
 <template>
   <style>
     :host {
@@ -97,48 +97,30 @@ paper-input-decorator /deep/ ::input-placeholder {
 }
 
   </style>
-  <core-animated-pages id="pages" selected="{{searchpage}}" selectedItem="{{selectedItem}}" transitions="hero-transition" no-transition?="{{noTransition}}">
+  <core-animated-pages id="pages" selected="{{sourcepage}}" selectedItem="{{selectedItem}}" transitions="hero-transition" no-transition?="{{noTransition}}">
 
-    <section id="page1" cross-fade style="background-color:#E5E5E5;">
+    
+    <section id="page2" cross-fade style="background-color:#E5E5E5;">
+      
       <core-header-panel main mode="seamed" id="core_header_panel">
-      <core-toolbar class="tall-toolbar-colored" style="background-color:#03a9f4;" layout vertical hero-id="thing" hero?="{{page === 0 || !noTransition}}">
-
-          <!--<core-icon-button icon="clear" on-tap="{{back}}"></core-icon-button>-->
-
-          <core-field id="core_field" icon="search" theme="core-light-theme" center horizontal layout one flex>
-            <paper-icon-button icon="arrow-back" on-tap="{{back}}"></paper-icon-button>
-            <!--<input id="input" label="search newsline" value="{{ $.speech_mic.transcript }}" is="core-input" flex>-->
-            <paper-input-decorator label="search newsline">
-            <input is="core-input" value="{{query}}" on-keyup="{{onKeyUp}}">
-            </paper-input-decorator>
-            <!--<core-icon icon="search" id="core_icon"></core-icon>-->
-            <paper-icon-button icon="search" on-tap={{copyquery}}></paper-icon-button>
-
-          </core-field>
-
-
-
-
+      
+      <core-toolbar class="tall-toolbar-colored" style="background-color:#03a9f4;" layout vertical hero-id="thing" hero?="{{page === 1 || !noTransition}}">
+<!--            <core-icon-button icon="menu" core-drawer-toggle></core-icon-button> -->
+         <paper-icon-button icon="arrow-back" on-tap="{{back}}"></paper-icon-button>
+           <div>Sources</div>
       </core-toolbar>
-      	<div class="searchcontainer" layout vertical center>
-		
+        
+      <div class="searchcontainer" layout vertical center>
+    
+      <subscription-list id="sublist" show="subs">
+      </subscription-list>
 
-		<!--
-		<search-list show="all" queryparameter="{{queryparameter}}">
-		</search-list> -->
-		
-       <search-list show="all" queryparameter="{{queryparameter}}">
-		</search-list>
-
-
-	</div>
+      </div>
 
       </core-header-panel>
 
 
     </section>
-
-    
 
   </core-animated-pages>
 </template>
@@ -147,35 +129,25 @@ paper-input-decorator /deep/ ::input-placeholder {
   Polymer({
 
     publish: {
-      searchpage: {value: 0},
-      site:"http://sandbox.feedly.com/v3/search/feeds/?apikey=A0SXFX54S3K0OC9GNCXG&query=",
-    },
+      sourcepage: {value: 0},
+       },
 
     selectedItem: null,
    // noTransition: true,
 
-      ready: function() {
-        // Initialize the instance's "list" property to empty array.
-        this.query = this.query || '';
-      },
-      copyquery:function(){
-        this.queryparameter = this.site+ this.query;
-      },
-
-      onKeyUp: function(e) {
-        if (e.keyCode == 13) {  // Enter.
-          this.queryparameter =  this.site+ this.query;
-        //  window.open('https://www.google.com/search?q=' + q);
-        }
-      },
+      
     back: function() {
       //this.noTransition = true;
       this.fire('nested-back');
     },
+    
+    sourceMakeCall:function(){
+      this.$.sublist.listMakeCall(); 
+  },
 
     transition: function() {
       this.noTransition = false;
-      this.searchpage = this.searchpage === 0 ? 1 : 0;
+      this.sourcepage = this.sourcepage === 0 ? 1 : 0;
     }
 
   });

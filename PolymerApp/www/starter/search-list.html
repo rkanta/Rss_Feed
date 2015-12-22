@@ -1,7 +1,6 @@
 <link rel="import" href="../components/polymer/polymer.html">
 <link rel="import" href="../post-service/search-service.html">
 <link rel="import" href="search-card.html">
-<link rel="import" href="../components/core-localstorage/core-localstorage.html">
 
 <polymer-element name="search-list" attributes="show queryparameter"> 
 <template>
@@ -24,6 +23,7 @@ search-card {
 <search-service id="service" queryurl="{{queryparameter}}" slists="{{slists}}" on-checksub="{{checksubscription}}">
 </search-service>
 
+
 <!-- this service(ajax) call is to get existing subscription and check if there are any matching with existing search results -->
 <search-service id="getsubs" queryurl="{{url}}" subslists="{{subslists}}" httpmethod="{{callmethod}}" token="{{token}}">
 </search-service>
@@ -37,14 +37,23 @@ search-card {
 	<search-card
       favorite="{{slist.favorite}}"
       on-favorite-tap="{{handleFavorite}}" temposts="{{slist}}"
-      hidden?="{{show == 'favorites' && !slist.favorite}}" check="{{slist.check}}" added="{{slist.added}}">
+      hidden?="{{show !== 'all'}}" check="{{slist.check}}" added="{{slist.added}}">
 	<img src="{{slist.visualUrl}}" width="70" height="70">
 	<h2>{{slist.title}}</h2>
-<!-- 	<p>{{slist.feedId}}</p> -->
+<!-- 	<p>{{slist.feedId}}</p>  hidden?="{{show == 'favorites' && !slist.favorite}}" subslists-->
 	</search-card>
 
 	</template>
 
+    <template repeat="{{subslist in subslists}}">
+
+  <search-card hidden?="{{show !== 'subs'}}" check="{{subslist.check}}" added="{{subslist.added}}">
+  <img src="{{subslist.visualUrl}}" width="70" height="70">
+  <h2>{{subslist.title}}</h2>
+<!--  <p>{{slist.feedId}}</p>  hidden?="{{show == 'favorites' && !slist.favorite}}" -->
+  </search-card>
+
+  </template>
 </div>
 </template>
 

@@ -1,8 +1,11 @@
 <link rel="import" href="../components/polymer/polymer.html">
 <link rel="import" href="../post-service/post-service.html">
+<link rel="import" href="../post-service/subscription-service.html">
 <link rel="import" href="post-card.html">
 
-<polymer-element name="post-list" attributes="show"> <template>
+<polymer-element name="post-list" attributes="show"> 
+
+<template>
 <style>
 :host {
 	display: block;
@@ -16,30 +19,44 @@ post-card {
 
 </style>
 
-<!-- add markup here --> 
-<post-service id="service" posts="{{posts}}">
-</post-service>
+<subscription-service id="subservice" subscriptionurl="{{subUrl}}" subreslists="{{subreslists}}"  httpmethod="{{callmethod}}">
+</subscription-service>
+
 
 <div layout vertical center>
-
-	<template repeat="{{post in posts}}"> 
+<!-- will work only when there subscriptions or else it will blank. Need to additional logic here -->
+<!-- if="{{subreslist.id===post.postid}}" -->
+    <template repeat="{{subreslist in subreslists}}">
+    
+    <post-service id="service" postUrl="{{posturl}}" postId={{subreslist.id}} posts="{{posts}}">
+    </post-service>
 	
-	<post-card
+</template>
+
+<template repeat="{{post in posts}}" > 
+  
+  <post-card
       favorite="{{post.favorite}}"
       on-favorite-tap="{{handleFavorite}}"
       hidden?="{{show == 'favorites' && !post.favorite}}">
-	<img src="{{post.visual.url}}">
-	<h2>{{post.title}}</h2>
-	<p>{{post.summary.content}}</p>
-	</post-card> 
-	
-	</template>
-
+  <img src="{{post.visual.url}}">
+  <h2>{{post.title}}</h2>
+  <p>{{post.summary.content}}</p>
+  </post-card> 
+  
+  </template>
 </div>
 </template> 
 
 <script>
   Polymer({
+  subUrl:'http://sandbox.feedly.com/v3/subscriptions',
+  posturl:'http://sandbox.feedly.com/v3/streams/contents?streamId=',
+   ready: function() {
+        //this.token = '{"Authorization":"AhIu6GJ7ImEiOiJGZWVkbHkgRGV2ZWxvcGVyIiwiZSI6MTQzNDgyNDE0MDIzMCwiaSI6IjFjMjIyZTY1LWYwNzEtNDk3My1hODdkLTkyMmQwOTE3MDhhMyIsInAiOjYsInQiOjEsInYiOiJzYW5kYm94IiwidyI6IjIwMTUuMTMiLCJ4Ijoic3RhbmRhcmQifQ:feedlydev"}';
+     this.$.subservice.enableAuthentication(true); 
+     
+       },
   handleFavorite: function(event, detail, sender) {
     var post = sender.templateInstance.model.post;
     this.$.service.setFavorite(post.uid, post.favorite);

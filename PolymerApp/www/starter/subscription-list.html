@@ -1,0 +1,83 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../post-service/subscription-service.html">
+<link rel="import" href="search-card.html">
+
+<polymer-element name="subscription-list" attributes="show"> 
+<template>
+<style>
+:host {
+	display: block;
+	width: 100%;
+}
+
+search-card {
+	margin-bottom: 30px;
+}
+</style>
+
+<!-- add markup here -->
+<core-media-query query="max-width: 640px"
+                  queryMatches="{{phoneScreen}}"></core-media-query>
+
+
+<subscription-service id="subservice" subscriptionurl="{{url}}" subreslists="{{subreslists}}"  httpmethod="{{callmethod}}">
+</subscription-service>
+
+<!-- this service(ajax) call is to get existing subscription and check if there are any matching with existing search results -->
+<!-- <search-service id="getsubs" queryurl="{{url}}" subslists="{{subslists}}" httpmethod="{{callmethod}}" token="{{token}}"> -->
+<!-- </search-service> -->
+
+ 
+<div layout vertical?="{{phoneScreen}}"
+     horizontal?="{{!phoneScreen}}" wrap>
+
+ <template repeat="{{subreslist in subreslists}}">
+
+  <search-card hidden?="{{show !== 'subs'}}" check="{{subreslist.check}}" added="{{subreslist.added}}">
+  <img src="{{subreslist.visualUrl}}" width="70" height="70">
+  <h2>{{subreslist.title}}</h2>
+<!--  <p>{{slist.feedId}}</p>  hidden?="{{show == 'favorites' && !slist.favorite}}" -->
+  </search-card>
+
+  </template>
+   
+</div>
+</template>
+
+<script>
+  Polymer({
+     /**
+       * feedly query parameter
+       *
+       * @attribute queryparameter
+       * @type string
+       */
+       ready: function() {
+	      //this.token = '{"Authorization":"AhIu6GJ7ImEiOiJGZWVkbHkgRGV2ZWxvcGVyIiwiZSI6MTQzNDgyNDE0MDIzMCwiaSI6IjFjMjIyZTY1LWYwNzEtNDk3My1hODdkLTkyMmQwOTE3MDhhMyIsInAiOjYsInQiOjEsInYiOiJzYW5kYm94IiwidyI6IjIwMTUuMTMiLCJ4Ijoic3RhbmRhcmQifQ:feedlydev"}';
+	   this.$.subservice.enableAuthentication(true); 
+	   
+       }, 
+      url:'http://sandbox.feedly.com/v3/subscriptions',
+      callmethod:'GET',
+      
+  handleFavorite: function(event, detail, sender) {
+    var post = sender.templateInstance.model.post;
+    this.$.service.setFavorite(post.uid, post.favorite);
+  },
+  
+
+  listMakeCall:function(){
+      this.$.subservice.makeCall(); 
+  },
+  checkstatus:function(){
+      for(var i = 0; i < this.sublists.length; ++i){
+	  var temp= this.sublists[i];
+	  var temp= this.sublists[i];
+	  var a = this.sublists.indexOf(this.sublists[i]);
+      }
+  }
+  
+});
+  </script> 
+  
+  </polymer-element>
